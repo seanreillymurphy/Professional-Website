@@ -1,0 +1,169 @@
+:root {
+  /* ========== COLORS — Primitives ========== */
+  --color-white: #ffffff;
+  --color-black: #0a0a0a;
+
+  /* Gray scale (cool-neutral, slight blue undertone — premium feel) */
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #e5e5e5;
+  --color-gray-300: #d4d4d4;
+  --color-gray-400: #a3a3a3;
+  --color-gray-500: #737373;
+  --color-gray-600: #525252;
+  --color-gray-700: #404040;
+  --color-gray-800: #262626;
+  --color-gray-900: #171717;
+  --color-gray-950: #0a0a0a;
+
+  /* Brand accents — choose ONE primary + ONE secondary max */
+  --color-accent-blue: #007AFF;        /* Apple system blue */
+  --color-accent-indigo: #5856D6;      /* Apple system indigo */
+  --color-accent-violet: #8B5CF6;      /* Rich violet */
+  --color-accent-cyan: #06B6D4;        /* Teal/cyan pop */
+  --color-accent-pink: #EC4899;        /* Pink accent */
+
+  /* Stripe-inspired gradient stops (for hero/special elements only) */
+  --gradient-1: #6ec3f4;
+  --gradient-2: #3a3aff;
+  --gradient-3: #ff61ab;
+  --gradient-4: #E63946;
+
+  /* ========== COLORS — Semantic ========== */
+  --color-bg-primary: var(--color-white);
+  --color-bg-secondary: var(--color-gray-50);    /* Subtle section alternation */
+  --color-bg-tertiary: var(--color-gray-100);     /* Card backgrounds, inputs */
+  --color-bg-elevated: var(--color-white);
+
+  --color-text-primary: #1D1D1F;                  /* Apple's near-black — NOT pure #000 */
+  --color-text-secondary: var(--color-gray-600);   /* ~40% gray */
+  --color-text-tertiary: var(--color-gray-400);    /* ~60% gray */
+
+  --color-border-default: var(--color-gray-200);
+  --color-border-subtle: rgba(0, 0, 0, 0.06);     /* Ultra-subtle card borders */
+  --color-border-hover: var(--color-gray-300);
+
+  /* ========== TYPOGRAPHY ========== */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+               Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+
+  /* Fluid type scale (Major Third 1.25 ratio, responsive with clamp) */
+  --text-hero: clamp(2.5rem, 5vw + 1rem, 4.75rem);    /* 40px → 76px */
+  --text-h1: clamp(2rem, 4vw + 1rem, 3.75rem);          /* 32px → 60px */
+  --text-h2: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);      /* 28px → 40px */
+  --text-h3: clamp(1.25rem, 2vw + 0.5rem, 1.875rem);    /* 20px → 30px */
+  --text-h4: clamp(1.125rem, 1.5vw + 0.5rem, 1.5rem);   /* 18px → 24px */
+  --text-body: clamp(1rem, 0.5vw + 0.875rem, 1.125rem);  /* 16px → 18px */
+  --text-small: clamp(0.8125rem, 0.25vw + 0.75rem, 0.875rem); /* 13px → 14px */
+  --text-tiny: 0.75rem;                                   /* 12px fixed */
+
+  /* Line heights per scale level */
+  --leading-hero: 1.05;
+  --leading-h1: 1.1;
+  --leading-h2: 1.15;
+  --leading-h3: 1.2;
+  --leading-h4: 1.25;
+  --leading-body: 1.6;
+  --leading-small: 1.4;
+
+  /* Letter spacing */
+  --tracking-tight: -0.03em;     /* Hero/display headings */
+  --tracking-snug: -0.02em;      /* H1-H2 */
+  --tracking-normal: -0.011em;   /* H3-H4 */
+  --tracking-body: 0;            /* Body text */
+  --tracking-wide: 0.05em;       /* Uppercase labels, overlines */
+
+  /* Font weights */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+
+  /* ========== SPACING (8px grid with 4px half-steps) ========== */
+  --space-0: 0;
+  --space-px: 1px;
+  --space-0-5: 0.125rem;  /* 2px */
+  --space-1: 0.25rem;     /* 4px */
+  --space-2: 0.5rem;      /* 8px */
+  --space-3: 0.75rem;     /* 12px */
+  --space-4: 1rem;        /* 16px */
+  --space-5: 1.25rem;     /* 20px */
+  --space-6: 1.5rem;      /* 24px */
+  --space-8: 2rem;        /* 32px */
+  --space-10: 2.5rem;     /* 40px */
+  --space-12: 3rem;       /* 48px */
+  --space-16: 4rem;       /* 64px */
+  --space-20: 5rem;       /* 80px */
+  --space-24: 6rem;       /* 96px */
+  --space-32: 8rem;       /* 128px */
+  --space-40: 10rem;      /* 160px */
+
+  /* Section vertical padding (responsive) */
+  --section-padding: clamp(3rem, 8vw, 7rem);
+  --section-padding-hero: clamp(4rem, 12vw, 10rem);
+
+  /* Content widths */
+  --max-w-content: 1200px;
+  --max-w-prose: 680px;           /* Comfortable reading width ~65ch */
+  --container-padding: clamp(1rem, 5vw, 3rem);
+
+  /* ========== SHADOWS (multi-layer, photorealistic) ========== */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-sm:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md:
+    0 1px 1px rgba(0, 0, 0, 0.04),
+    0 2px 4px rgba(0, 0, 0, 0.04),
+    0 4px 8px rgba(0, 0, 0, 0.06);
+  --shadow-lg:
+    0 1px 1px rgba(0, 0, 0, 0.03),
+    0 2px 2px rgba(0, 0, 0, 0.03),
+    0 4px 4px rgba(0, 0, 0, 0.04),
+    0 8px 8px rgba(0, 0, 0, 0.04),
+    0 16px 16px rgba(0, 0, 0, 0.05);
+  --shadow-xl:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.028),
+    0 12.5px 10px rgba(0, 0, 0, 0.035),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.042),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+    0 100px 80px rgba(0, 0, 0, 0.07);
+  --shadow-card-hover:
+    0 12px 24px rgba(0, 0, 0, 0.12),
+    0 4px 8px rgba(0, 0, 0, 0.06);
+
+  /* ========== BORDERS ========== */
+  --radius-sm: 0.375rem;   /* 6px */
+  --radius-md: 0.5rem;     /* 8px */
+  --radius-lg: 0.75rem;    /* 12px */
+  --radius-xl: 1rem;       /* 16px */
+  --radius-2xl: 1.5rem;    /* 24px */
+  --radius-full: 9999px;
+
+  /* ========== EASING CURVES ========== */
+  --ease-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --ease-decelerate: cubic-bezier(0.0, 0.0, 0.2, 1);
+  --ease-accelerate: cubic-bezier(0.4, 0.0, 1, 1);
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-apple-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+  /* Durations */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+  --duration-slower: 600ms;
+
+  /* ========== Z-INDEX ========== */
+  --z-particles: -1;
+  --z-base: 0;
+  --z-content: 1;
+  --z-sticky: 20;
+  --z-overlay: 30;
+  --z-modal: 40;
+  --z-nav: 50;
+}

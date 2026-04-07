@@ -1,0 +1,16 @@
+{
+  "name": "Your Name - Professional Portfolio",
+  "short_name": "Your Name",
+  "description": "Professional portfolio website. Update this with your own description.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#6366f1",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
