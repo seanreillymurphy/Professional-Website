@@ -12,7 +12,6 @@ export default function Hero() {
   const lenis = useLenis();
 
   useEffect(() => {
-    // Advanced text reveal animation
     if (titleRef.current) {
       const letters = titleRef.current.querySelectorAll('.hero-letter');
 
@@ -36,7 +35,6 @@ export default function Hero() {
       );
     }
 
-    // Subtle parallax effect for hero background
     if (heroRef.current) {
       gsap.to(heroRef.current, {
         y: "20%",
@@ -86,8 +84,7 @@ export default function Hero() {
             marginRight: 'auto'
           }}
         >
-          {/* TODO: Replace with your own tagline */}
-          YOUR TAGLINE HERE
+          Technology Sales Executive | AI & Enterprise GTM
         </motion.p>
 
         <h1
@@ -101,8 +98,7 @@ export default function Hero() {
             letterSpacing: 'var(--tracking-tight)'
           }}
         >
-          {/* TODO: Replace with your own headline */}
-          {splitText("Your Headline Goes Here")}
+          {splitText("Sean R. Murphy")}
         </h1>
 
         <motion.p
@@ -116,8 +112,7 @@ export default function Hero() {
             lineHeight: 'var(--leading-body)'
           }}
         >
-          {/* TODO: Replace with your own subheadline */}
-          A brief description of what you do and the value you bring. Make it compelling and specific to your expertise.
+          Translating complex Data, AI and Digital Transformation capabilities into narratives that drive executive buy-in and accelerate enterprise adoption.
         </motion.p>
 
         <motion.div
@@ -126,7 +121,6 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex justify-center"
         >
-          {/* Primary CTA - Let's Talk */}
           <motion.button
             onClick={() => {
               const target = document.getElementById('contact');
@@ -160,9 +154,7 @@ export default function Hero() {
             </svg>
           </motion.button>
         </motion.div>
-
       </div>
-
     </section>
   );
 }

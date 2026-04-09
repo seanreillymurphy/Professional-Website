@@ -1,368 +1,148 @@
 "use client";
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import {
-  createRevealAnimation,
-  createGlassCardAnimation
-} from '@/lib/scroll';
+import { motion } from 'framer-motion';
 
-interface CareerExperience {
-  id: string;
-  company: string;
-  period: string;
-  location: string;
-  positions: string[];
-  description: string;
-  achievements: string[];
-  impact: string;
-  keyStats?: {
-    metric: string;
-    value: string;
-  }[];
-}
-
-// TODO: Replace ALL entries below with your own career history
-const careerData: CareerExperience[] = [
+const careerHistory = [
   {
-    id: 'current-role',
-    company: 'Your Current Company',
-    period: 'Start Date – Present',
-    location: 'City, State',
-    positions: ['Your Current Title'],
-    description: 'Brief description of the company and your role. Include company size, industry, and what makes this role notable.',
-    achievements: [
-      'Key achievement #1 with specific metrics',
-      'Key achievement #2 with specific metrics',
-      'Key achievement #3 with specific metrics'
-    ],
-    impact: 'Describe the broader impact of your work here. What did you change or improve at a strategic level?',
-    keyStats: [
-      { metric: 'Metric Label', value: 'Value' },
-      { metric: 'Metric Label', value: 'Value' },
-      { metric: 'Metric Label', value: 'Value' }
+    company: "The Modern Data Company",
+    role: "Senior Director, Go-to-Market",
+    location: "Chicago, IL",
+    period: "Jan 2026 – Present",
+    bullets: [
+      "Stood up the global commercial function from the ground up, defining infrastructure and sales playbooks.",
+      "Developed the core sales narrative, translating AI and data capabilities for executive buyers.",
+      "Leads commercial approach for Private Equity and CPG/Retail sectors."
     ]
   },
   {
-    id: 'previous-role',
-    company: 'Your Previous Company',
-    period: 'Start Date – End Date',
-    location: 'City, State',
-    positions: ['Your Title'],
-    description: 'Brief description of the company and your role.',
-    achievements: [
-      'Key achievement #1 with specific metrics',
-      'Key achievement #2 with specific metrics',
-      'Key achievement #3 with specific metrics'
-    ],
-    impact: 'Describe the broader impact of your work here.',
-    keyStats: [
-      { metric: 'Metric Label', value: 'Value' },
-      { metric: 'Metric Label', value: 'Value' },
-      { metric: 'Metric Label', value: 'Value' }
+    company: "Nearform",
+    role: "Senior Director, Strategic Growth",
+    location: "Chicago, IL",
+    period: "May 2025 – Jan 2026",
+    bullets: [
+      "Served as the first global revenue leader, establishing a consistent sales approach worldwide.",
+      "Led partnership ecosystem strategy, including commercial modeling and joint selling motions.",
+      "Owned the 'Fellows' program, a curated network of former C-suite operators for high-value access."
+    ]
+  },
+  {
+    company: "Valtech / Kin + Carta",
+    role: "Vice President, Strategic Pursuits",
+    location: "Chicago, IL",
+    period: "Aug 2023 – May 2025",
+    bullets: [
+      "Achieved 120% of new business quota in 2024.",
+      "Built joint selling programs with GCP and AWS to deepen relationships with hyperscalers.",
+      "Author of 'Flipping the Script,' a whitepaper on Digital Decoupling and Legacy Modernization."
+    ]
+  },
+  {
+    company: "Thoughtworks",
+    role: "Principal Consultant, Business Development",
+    location: "Chicago, IL",
+    period: "Jan 2020 – Aug 2023",
+    bullets: [
+      "Highest-performing sales professional in company history with over $120M in net new TCV.",
+      "Scaled the outbound sales process now in use across three continents.",
+      "Drove analyst briefings contributing to a Leader placement in the 2022 Forrester Wave."
+    ]
+  },
+  {
+    company: "Devbridge (acquired by Cognizant)",
+    role: "Client Principal",
+    location: "Chicago, IL",
+    period: "Feb 2018 – Jan 2020",
+    bullets: [
+      "Engaged Fortune 500 executives to build business cases for custom software and agile delivery.",
+      "Achieved 146% of cumulative goal in 2019.",
+      "Founded the firm's process for identifying and landing new client engagements."
+    ]
+  },
+  {
+    company: "Outcome Health",
+    role: "Account Executive",
+    location: "Chicago, IL",
+    period: "May 2016 – Sep 2017",
+    bullets: [
+      "Ranked in the top 10% of a sales team of over 80 contributors.",
+      "Partnered with PE-backed dermatology groups to deploy patient engagement solutions.",
+      "Served on the Competitive Intelligence Committee to refine company-wide sales positioning."
+    ]
+  },
+  {
+    company: "UrbanBound",
+    role: "Enterprise Account Executive",
+    location: "Chicago, IL",
+    period: "Aug 2015 – Mar 2016",
+    bullets: [
+      "Closed the largest deal in company history with a Fortune 50 account.",
+      "Identified and opened conversations with key decision makers in Fortune 500 organizations.",
+      "Advised C-suite on relocation tax guidelines to support cost-cutting initiatives."
+    ]
+  },
+  {
+    company: "Groupon Getaways",
+    role: "Senior Account Executive",
+    location: "Chicago, IL",
+    period: "May 2013 – Jul 2015",
+    bullets: [
+      "Grew an established book of business by over 500% in year one.",
+      "Averaged over $5M per year in bookings; member of the Groupon Getaways Millionaire's Club.",
+      "Signed the longest-term agreement in the history of Groupon Getaways."
     ]
   }
-  // Add more career entries as needed by copying the structure above
 ];
 
 export default function CareerPage() {
-  const [activeExperience, setActiveExperience] = useState<string | null>(null);
-
-  useEffect(() => {
-    // Initialize scroll animations
-    createRevealAnimation('.reveal-section');
-    createGlassCardAnimation('.glass-card');
-  }, []);
-
-  const toggleExperience = (id: string) => {
-    setActiveExperience(activeExperience === id ? null : id);
-  };
-
   return (
-    <main className="relative">
+    <main className="min-h-screen py-24 px-6 bg-black text-white">
+      <div className="max-w-4xl mx-auto">
+        
+        {/* REFINED & CENTERED HEADER */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-20 text-center"
+        >
+          <h1 className="text-5xl md:text-7xl font-extrabold mb-8 tracking-tight">
+            Career Journey
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
+            AI-enabled sales executive with a proven track record of partnering with the C-suite to drive enterprise transformation for Fortune 500 firms.
+          </p>
+        </motion.div>
 
-      {/* Hero Section */}
-      <section className="py-24 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-12"
-          >
-            <h1
-              className="mb-6"
-              style={{
-                fontSize: 'clamp(3rem, 8vw, 4rem)',
-                fontWeight: 'var(--font-extrabold)',
-                color: 'var(--color-text-primary)',
-                lineHeight: '0.9',
-                letterSpacing: 'var(--tracking-tight)'
-              }}
+        {/* TIMELINE SECTION */}
+        <div className="space-y-12">
+          {careerHistory.map((job, index) => (
+            <motion.div 
+              key={index}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative pl-8 border-l border-gray-800"
             >
-              Career <span style={{ color: 'var(--color-accent-blue)' }}>Journey</span>
-            </h1>
-            <p
-              className="max-w-2xl mx-auto leading-relaxed"
-              style={{
-                fontSize: 'var(--text-h3)',
-                color: 'var(--color-text-secondary)',
-                lineHeight: 'var(--leading-body)'
-              }}
-            >
-              {/* TODO: Replace with your own career summary */}
-              A brief summary of your career arc and what makes your professional journey compelling.
-            </p>
-          </motion.div>
+              <div className="absolute -left-1.5 top-2 w-3 h-3 rounded-full bg-blue-500" />
+              <div className="mb-1 flex flex-wrap items-baseline gap-x-4">
+                <h2 className="text-2xl font-bold">{job.company}</h2>
+                <span className="text-sm font-mono text-gray-500 uppercase tracking-widest">
+                  {job.period}
+                </span>
+              </div>
+              <h3 className="text-lg text-blue-400 mb-4">{job.role}</h3>
+              <ul className="space-y-3">
+                {job.bullets.map((bullet, i) => (
+                  <li key={i} className="text-gray-400 leading-relaxed flex items-start">
+                    <span className="mr-3 mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-700 flex-shrink-0" />
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
         </div>
-      </section>
-
-      {/* Timeline */}
-      <section className="py-12 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 timeline-line" />
-
-            {careerData.map((experience, index) => (
-              <motion.div
-                key={experience.id}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="relative mb-12"
-              >
-                {/* Timeline Dot */}
-                <div className={`absolute left-6 w-4 h-4 timeline-dot rounded-full z-10 ${activeExperience === experience.id ? 'timeline-dot-active' : ''}`} />
-
-                {/* Content Card */}
-                <div className="ml-20">
-                  <button
-                    onClick={() => toggleExperience(experience.id)}
-                    className="w-full text-left transition-all duration-300 group"
-                    style={{
-                      backgroundColor: 'var(--color-bg-elevated)',
-                      borderRadius: 'var(--radius-xl)',
-                      border: '1px solid var(--color-border-subtle)',
-                      padding: 'var(--space-6)',
-                      boxShadow: 'var(--shadow-sm)'
-                    }}
-                  >
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <h3
-                          className="mb-2 group-hover:transition-colors"
-                          style={{
-                            fontSize: 'var(--text-h2)',
-                            fontWeight: 'var(--font-semibold)',
-                            color: 'var(--color-text-primary)'
-                          }}
-                        >
-                          {experience.company}
-                        </h3>
-                        <div className="flex flex-wrap gap-4 mb-2" style={{ fontSize: 'var(--text-small)', color: 'var(--color-text-tertiary)' }}>
-                          <span>{experience.period}</span>
-                          <span>•</span>
-                          <span>{experience.location}</span>
-                        </div>
-                        <div className="flex flex-wrap gap-2 mb-3">
-                          {experience.positions.map((position, idx) => (
-                            <span
-                              key={idx}
-                              className="px-3 py-1 rounded-full"
-                              style={{
-                                backgroundColor: 'rgba(0, 122, 255, 0.2)',
-                                color: 'var(--color-accent-blue)',
-                                fontSize: 'var(--text-small)',
-                                fontWeight: 'var(--font-medium)'
-                              }}
-                            >
-                              {position}
-                            </span>
-                          ))}
-                        </div>
-                        <p
-                          className="leading-relaxed"
-                          style={{
-                            color: 'var(--color-text-secondary)',
-                            fontSize: 'var(--text-body)',
-                            lineHeight: 'var(--leading-body)',
-                            textAlign: 'left'
-                          }}
-                        >
-                          {experience.description}
-                        </p>
-                      </div>
-                      <div className="ml-4 flex-shrink-0">
-                        <motion.div
-                          animate={{ rotate: activeExperience === experience.id ? 180 : 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="w-8 h-8 flex items-center justify-center"
-                          style={{ color: 'var(--color-accent-blue)' }}
-                        >
-                          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                          </svg>
-                        </motion.div>
-                      </div>
-                    </div>
-                  </button>
-
-                  <AnimatePresence>
-                    {activeExperience === experience.id && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="overflow-hidden"
-                      >
-                        <div
-                          className="mt-4 border-l-4"
-                          style={{
-                            backgroundColor: 'var(--color-bg-elevated)',
-                            borderRadius: 'var(--radius-xl)',
-                            border: '1px solid var(--color-border-subtle)',
-                            borderLeftColor: 'var(--color-accent-blue)',
-                            borderLeftWidth: '4px',
-                            padding: 'var(--space-6)',
-                            boxShadow: 'var(--shadow-sm)'
-                          }}
-                        >
-                          {/* Key Stats */}
-                          {experience.keyStats && (
-                            <div className="grid md:grid-cols-3 gap-4 mb-6">
-                              {experience.keyStats.map((stat, idx) => (
-                                <div
-                                  key={idx}
-                                  className="text-center p-4 rounded-lg"
-                                  style={{ backgroundColor: 'rgba(0, 122, 255, 0.1)' }}
-                                >
-                                  <div
-                                    className="mb-1"
-                                    style={{
-                                      fontSize: 'var(--text-h2)',
-                                      fontWeight: 'var(--font-bold)',
-                                      color: 'var(--color-accent-blue)'
-                                    }}
-                                  >
-                                    {stat.value}
-                                  </div>
-                                  <div style={{ fontSize: 'var(--text-small)', color: 'var(--color-text-secondary)' }}>
-                                    {stat.metric}
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
-                          )}
-
-                          {/* Achievements */}
-                          <div className="mb-6">
-                            <h4
-                              className="mb-3"
-                              style={{
-                                fontSize: 'var(--text-h4)',
-                                fontWeight: 'var(--font-semibold)',
-                                color: 'var(--color-text-primary)'
-                              }}
-                            >
-                              Key Achievements
-                            </h4>
-                            <ul className="space-y-2">
-                              {experience.achievements.map((achievement, idx) => (
-                                <li
-                                  key={idx}
-                                  className="flex items-start gap-3"
-                                  style={{ color: 'var(--color-text-secondary)' }}
-                                >
-                                  <div
-                                    className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
-                                    style={{ backgroundColor: 'var(--color-accent-blue)' }}
-                                  />
-                                  <span>{achievement}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-
-                          {/* Impact */}
-                          <div>
-                            <h4
-                              className="mb-3"
-                              style={{
-                                fontSize: 'var(--text-h4)',
-                                fontWeight: 'var(--font-semibold)',
-                                color: 'var(--color-text-primary)'
-                              }}
-                            >
-                              Impact
-                            </h4>
-                            <p
-                              className="leading-relaxed"
-                              style={{
-                                color: 'var(--color-text-secondary)',
-                                fontSize: 'var(--text-body)',
-                                lineHeight: 'var(--leading-body)'
-                              }}
-                            >
-                              {experience.impact}
-                            </p>
-                          </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Bottom Navigation */}
-      <section className="py-12 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <div
-            style={{
-              backgroundColor: 'var(--color-bg-elevated)',
-              borderRadius: 'var(--radius-xl)',
-              border: '1px solid var(--color-border-subtle)',
-              padding: 'var(--space-8)',
-              boxShadow: 'var(--shadow-sm)'
-            }}
-          >
-            <h3
-              className="mb-4"
-              style={{
-                fontSize: 'var(--text-h2)',
-                fontWeight: 'var(--font-semibold)',
-                color: 'var(--color-text-primary)'
-              }}
-            >
-              Let's Connect
-            </h3>
-            <p
-              className="mb-6 leading-relaxed"
-              style={{
-                color: 'var(--color-text-secondary)',
-                fontSize: 'var(--text-body)',
-                lineHeight: 'var(--leading-body)'
-              }}
-            >
-              {/* TODO: Replace with your own call-to-action text */}
-              Interested in working together? Let's explore how we can create impact together.
-            </p>
-            <div className="flex justify-center">
-              <a href="/contact" className="btn-primary">
-                <span>Let's Connect</span>
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
     </main>
   );
 }
