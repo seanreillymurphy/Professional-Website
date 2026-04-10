@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Hero from '@/components/Hero';
+import Link from 'next/link';
 import {
   createRevealAnimation,
   createGlassCardAnimation,
@@ -66,16 +67,26 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Centered Button */}
-              <div className="pt-4">
+              {/* Action Buttons with increased spacing */}
+              <div className="flex flex-col space-y-6 pt-6 w-full items-center">
                 <motion.a
                   href="/career"
-                  className="btn-primary inline-flex items-center justify-center px-10 py-4 rounded-full font-bold transition-all shadow-xl"
-                  style={{ minWidth: '260px' }}
+                  className="btn-primary inline-flex items-center justify-center px-10 py-4 rounded-full font-bold transition-all shadow-xl text-white bg-blue-600" 
+                  style={{ minWidth: '280px' }}
                   whileHover={{ scale: 1.05, boxShadow: '0 10px 30px -10px rgba(88, 86, 214, 0.6)' }}
                   whileTap={{ scale: 0.98 }}
                 >
                   Explore Career Journey
+                </motion.a>
+
+                <motion.a
+                  href="/thought-leadership"
+                  className="btn-primary inline-flex items-center justify-center px-10 py-4 rounded-full font-bold transition-all shadow-xl text-white bg-blue-600"
+                  style={{ minWidth: '280px' }}
+                  whileHover={{ scale: 1.05, boxShadow: '0 10px 30px -10px rgba(88, 86, 214, 0.6)' }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Thought Leadership
                 </motion.a>
               </div>
             </motion.div>
@@ -135,7 +146,6 @@ export default function Home() {
           </motion.h2>
           
           <div className="flex flex-col sm:flex-row justify-center gap-8">
-            {/* LinkedIn Action */}
             <motion.a 
               href="https://www.linkedin.com/in/seanreillymurphy/" 
               target="_blank"
@@ -154,7 +164,6 @@ export default function Home() {
               </div>
             </motion.a>
 
-            {/* Email Action */}
             <motion.a 
               href="mailto:seanreillymurphy@gmail.com" 
               className="flex-1 p-8 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all group"
