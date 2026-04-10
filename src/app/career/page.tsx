@@ -108,7 +108,6 @@ const careerHistory = [
     location: "Chicago, IL",
     period: "Oct 2009 – Nov 2012",
     bullets: [
-      "Consistently exceeded hotel upsell goals and trained personnel in rigorous Four Seasons service standards.",
       "Graduate of the prestigious Four Seasons STEPS training program and the Four Seasons MIT program.",
       "Created and implemented the 'Candyman' program, resulting in features in USA Today, New York Times, and Daily Globe and Mail.",
       "Nominated by the Illinois Hotel and Lodging Administration for Customer Service Employee of the Year in 2011."
