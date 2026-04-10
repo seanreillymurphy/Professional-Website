@@ -47,7 +47,7 @@ export default function ThoughtLeadership() {
                 <a 
                   href="https://www.valtech.com/whitepapers/digital-decoupling/" 
                   target="_blank" 
-                  className="inline-block bg-blue-600 text-white font-bold px-8 py-4 rounded-full hover:bg-blue-500 transition-all shadow-lg"
+                  className="inline-block !bg-blue-600 !text-white font-bold px-8 py-4 rounded-full hover:bg-blue-500 transition-all shadow-lg"
                 >
                   Read the Full Whitepaper →
                 </a>
@@ -65,7 +65,7 @@ export default function ThoughtLeadership() {
             <a 
               href="https://www.thoughtworks.com/en-us/about-us/events/webinars/tech-and-ethics-webinar" 
               target="_blank" 
-              className="inline-block bg-blue-600 text-white font-bold px-8 py-4 rounded-full hover:bg-blue-500 transition-all shadow-lg"
+              className="inline-block !bg-blue-600 !text-white font-bold px-8 py-4 rounded-full hover:bg-blue-500 transition-all shadow-lg"
             >
               Watch the Webinar
             </a>
@@ -82,7 +82,7 @@ export default function ThoughtLeadership() {
             <a 
               href="https://www.thoughtworks.com/en-us/insights/articles/three-digital-transformation-opportunities-helping-oems-boost-re" 
               target="_blank" 
-              className="text-blue-400 font-bold text-lg hover:text-white hover:underline transition-all"
+              className="inline-block !bg-blue-600 !text-white font-bold px-8 py-4 rounded-full hover:bg-blue-500 transition-all shadow-lg"
             >
               Read Article on Thoughtworks →
             </a>
